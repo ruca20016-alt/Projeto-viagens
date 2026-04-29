@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="confirmacao.css">
 <title>Confirmação do formulário</title>
 </head>
 <body>
