@@ -92,7 +92,7 @@ public class Viagem {
                     case "onibus":
                         total += 100 * nPessoas;
                         break;
-                    case "carro":
+                    case "cruzeiro":
                         total += 200;
                         break;
                 }
