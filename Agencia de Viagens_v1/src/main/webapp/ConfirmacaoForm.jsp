@@ -30,13 +30,13 @@
 	<p><b>Valor da Diaria:</b> <%= vDiaria %></p>
 	<p><b>Data:</b> <%= dtViagemS %></p>
 	<p><b>Meios de transporte:</b></p>
+	<p><b>Meios de transporte:</b></p>
 	<% 
-	
-	if(meioTrans != null){
-		for (String meio : meioTrans){
-			out.println(meioTrans);			
+		if (meioTrans != null) {
+		    for (String meio : meioTrans) {
+		        out.println("<p>" + meio + "</p>");
+		    }
 		}
-	}
 	%>
 	
 	<p><b>Numero de Pessoas:</b> <%= nPessoas %></p>
