@@ -1,0 +1,130 @@
+:root {
+    --primary: #004aad;
+    --primary-dark: #003a85;
+    --bg: #0b1220;
+    --card: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --radius: 14px;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #061a33, #0b2a55);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CARD PRINCIPAL */
+.container {
+    width: 520px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 25px 80px rgba(0,0,0,0.45);
+    overflow: hidden;
+    animation: fadeIn 0.4s ease-in-out;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* HEADER */
+.container h1 {
+    margin: 0;
+    padding: 24px;
+    text-align: center;
+    background: linear-gradient(135deg, #004aad, #002f6c);
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: "Segoe UI Black", "Arial Black", sans-serif;
+}
+
+/* FORM */
+form {
+    padding: 25px;
+}
+
+/* LABELS */
+label {
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+/* INPUTS */
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.2s;
+    font-size: 14px;
+    background: #fafafa;
+}
+
+input:focus {
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(0,74,173,0.15);
+}
+
+/* CHECKBOX AREA */
+.checkbox-group {
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    background: #f3f6ff;
+    border: 1px solid #e5edff;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+}
+
+/* CHECKBOX */
+.checkbox-group input {
+    transform: scale(1.1);
+    margin-right: 6px;
+}
+
+/* BOTÃO */
+input[type="submit"] {
+    width: 100%;
+    margin-top: 22px;
+    padding: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,74,173,0.25);
+}
+
+/* ANIMAÇÃO */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
