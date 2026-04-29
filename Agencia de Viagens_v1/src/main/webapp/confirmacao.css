@@ -1,61 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700;800&display=swap');
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'League Spartan', sans-serif;
-  background-color: #f0f2f7;
-  color: #1a2244;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+    font-family: 'League Spartan', sans-serif;
+    background: linear-gradient(135deg, #f0f2f7, #dfe6f7);
+    color: #1a2244;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
 }
 
 .container {
-  background-color: #ffffff;
-  border-top: 5px solid #1a35b5;
-  border-radius: 10px;
-  box-shadow: 0 4px 16px rgba(26, 53, 181, 0.15);
-  padding: 2rem;
-  width: 100%;
-  max-width: 520px;
+    background-color: white;
+    width: 100%;
+    max-width: 600px;
+    padding: 2.5rem;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(26, 53, 181, 0.15);
+    border-top: 6px solid #1a35b5;
 }
 
 h1 {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: #1a35b5;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-align: center;
-  margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1a35b5;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Cada linha de informação */
-p {
-  font-size: 0.95rem;
-  color: #1a2244;
-  padding: 0.65rem 0;
-  border-bottom: 1px solid #e8ebf4;
-  display: flex;
-  gap: 0.5rem;
+.info {
+    background-color: #f7f9ff;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    border-left: 4px solid #1a35b5;
+    transition: transform 0.2s ease;
 }
 
-p:last-of-type {
-  border-bottom: none;
+.info:hover {
+    transform: translateX(4px);
 }
 
-p b {
-  font-weight: 700;
-  color: #1a35b5;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
-  min-width: 160px;
+.info b {
+    color: #1a35b5;
+    font-weight: 700;
+}
+
+.transporte {
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    padding: 0.7rem 1rem;
+    background-color: #eef3ff;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #1a2244;
 }
