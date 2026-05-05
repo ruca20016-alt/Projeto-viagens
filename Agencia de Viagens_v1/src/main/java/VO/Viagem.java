@@ -103,9 +103,7 @@ public class Viagem {
 		
 	}
 	
-	public double calcularValorUnitario() {
-		double valorUnit = 0;
-	
+	public double calcularCustoPorPessoa() {
 		    if (nPessoas == 0) {
 		        return 0;
 		    }
