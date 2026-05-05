@@ -14,13 +14,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
 }
 
 .container {
-    background-color: white;
     width: 100%;
     max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: white;
     padding: 2.5rem;
     border-radius: 18px;
     box-shadow: 0 8px 24px rgba(26, 53, 181, 0.15);
@@ -32,35 +34,37 @@ h1 {
     font-size: 1.8rem;
     font-weight: 800;
     color: #1a35b5;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.info {
-    background-color: #f7f9ff;
-    padding: 1rem 1.2rem;
-    border-radius: 12px;
     margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+p {
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    background-color: #f7f9ff;
     border-left: 4px solid #1a35b5;
-    transition: transform 0.2s ease;
-}
-
-.info:hover {
-    transform: translateX(4px);
-}
-
-.info b {
-    color: #1a35b5;
-    font-weight: 700;
-}
-
-.transporte {
-    margin-left: 1rem;
-    margin-top: 0.5rem;
-    padding: 0.7rem 1rem;
-    background-color: #eef3ff;
-    border-radius: 8px;
     font-weight: 600;
-    color: #1a2244;
+}
+
+b {
+    color: #1a35b5;
+}
+
+.btn-voltar {
+    margin-top: 15px;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: #1a35b5;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-voltar:hover {
+    background-color: #142a91;
+    transform: translateY(-2px);
 }
