@@ -24,6 +24,7 @@ public class Viagem {
 		this.vDiaria = vDiaria;
 		this.dtViagem = dtViagem;
 		this.meioTrans = meioTrans;
+		this.valorPassagem = valorPassagem;
 		this.nPessoas = nPessoas;
 	}
 
