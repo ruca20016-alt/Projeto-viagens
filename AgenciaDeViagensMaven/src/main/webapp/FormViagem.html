@@ -13,7 +13,7 @@
 
     <h1>Cadastro de Viagem</h1>
 
-    <form action=ConfirmacaoForm.jsp method="post">
+    <form action="ViagemController?operacao=Cadastrar" method="post">
 
         <label>Destino</label>
         <input type="text" name="destino" required>
@@ -43,12 +43,8 @@
         <label>Número de pessoas</label>
         <input type="number" name="nPessoas" min="1" required>
 
-        <input type="submit" value="Adicionar Viagem">
-
-    </form>
+		<input type="submit" value="Adicionar Viagem"></form>
     
-    
-
 </div>
 
 </body>

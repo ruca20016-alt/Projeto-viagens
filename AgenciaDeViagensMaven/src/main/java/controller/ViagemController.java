@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.sql.DataSource;
@@ -42,12 +43,9 @@ public class ViagemController extends HttpServlet {
 			case "listar":
 				listarViagens(request, response);
 				break;
-//			case "cadastrar":
-//				cadastrarTarefa(request, response);
-//				break;
-//			case "remover":
-//				removerTarefa(request, response);
-//				break;
+			case "remover":
+				removerViagem(request, response);
+				break;
 			default:
 				System.out.println("Erro! Operação não encontrada.");
 		}
@@ -56,7 +54,14 @@ public class ViagemController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String operacao = request.getParameter("operacao");
+		operacao = operacao.toLowerCase();
 		
+		switch(operacao) {
+		case "cadastrar":
+			inserirViagem(request, response);
+				break;
+		}
 	
 	}
 	
@@ -68,5 +73,39 @@ public class ViagemController extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/catalogoViagens.jsp");
 		dispatcher.forward(request, response);
 	}
+	
+	private void inserirViagem(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			
+		String destino = request.getParameter("destino");
+		String pais = request.getParameter("pais");
+		int duracao = Integer.parseInt(request.getParameter("duracao"));
+		double vDiaria = Double.parseDouble(request.getParameter("vDiaria"));
+		LocalDate dtViagem = LocalDate.parse(request.getParameter("dtViagem"));
+		String meioTrans = request.getParameter("meioTrans");
+		double valorPassagem = Double.parseDouble(request.getParameter("valorPassagem"));
+		int nPessoas = Integer.parseInt(request.getParameter("nPessoas"));
+			
+			boolean resultado = vDAO.inserirViagem(destino,pais,duracao,vDiaria,dtViagem,meioTrans,valorPassagem,nPessoas);
+			
+			request.setAttribute("status", resultado);
+			request.setAttribute("operacao", "cadastrada");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/statusInsercao.jsp");
+			dispatcher.forward(request, response);
+			
+		}
+	
+	private void removerViagem(HttpServletRequest request, HttpServletResponse response)
+	        throws ServletException, IOException {
 
-}
+	    int id = Integer.parseInt(request.getParameter("id"));
+
+	    Viagem viagem = vDAO.buscarViagemPorId(id);
+
+	    request.setAttribute("viagem", viagem);
+
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("/confirmarRemocao.jsp");
+	    dispatcher.forward(request, response);
+	}
+	
+	
+	}

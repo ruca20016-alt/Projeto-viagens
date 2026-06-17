@@ -11,6 +11,11 @@
 	
 	<%
 		ArrayList<Viagem> listaViagens = (ArrayList<Viagem>) request.getAttribute("agenciadeviagens");
+	
+	if (listaViagens == null) {
+	    listaViagens = new ArrayList<Viagem>();
+	}
+	
 	%>
 	<table border="1">
 		<tr>
@@ -36,15 +41,19 @@
 			out.println("<td>" + viagem.getMeioTrans() + "</td>");
 			out.println("<td>" + viagem.getValorPassagem() + "</td>");
 			out.println("<td>" + viagem.getNPessoas() + "</td>");
-			out.println("<td><a href = \"TarefaController?operacao=Buscar&simbolo=lixeira&id=" + viagem.getId() + "\"><img src = \"lixeira.png\" height = \"20px\"></a></td>");
-			out.println("<td><a href = \"TarefaController?operacao=Buscar&simbolo=editar&id=" + viagem.getId() + "\"><img src = \"editar.png\" height = \"20px\"></a></td>");
-			out.println("<tr>");
+
+			out.println("<td><a href=\"ViagemController?operacao=remover&id=" + viagem.getId() + "\"><img src=\"lixeira.png\" height=\"20\"></a></td>");
+
+//			out.println("<td><a href=\"ViagemController?operacao=Editar&id=" + viagem.getId() + "\"><img src=\"editar.png\" height=\"20\"></a></td>");
+			out.println("</tr>");
 		}
 		
 		%>
 		
 		</table>
-		<p> <a href = "indexViagem.html"> Inicio</a>
+		<p> <a href = "indexViagem.html"> Inicio</a><br>
+	
+		<a href = "FormViagem.html"><input type = "button" value="Nova Viagem"></a><br><br>
 	
 
 </body>
