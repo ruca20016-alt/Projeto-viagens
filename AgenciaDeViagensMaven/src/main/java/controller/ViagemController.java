@@ -44,8 +44,8 @@ public class ViagemController extends HttpServlet {
 				listarViagens(request, response);
 				break;
 			case "remover":
-				removerViagem(request, response);
-				break;
+			    confirmarRemocao(request, response);
+			    break;
 			default:
 				System.out.println("Erro! Operação não encontrada.");
 		}
@@ -61,6 +61,11 @@ public class ViagemController extends HttpServlet {
 		case "cadastrar":
 			inserirViagem(request, response);
 				break;
+		case "remover":
+			removerViagem(request, response);
+			break;
+		default:
+			System.out.println("Erro! Operação não encontrada.");
 		}
 	
 	}
@@ -87,14 +92,12 @@ public class ViagemController extends HttpServlet {
 			
 			boolean resultado = vDAO.inserirViagem(destino,pais,duracao,vDiaria,dtViagem,meioTrans,valorPassagem,nPessoas);
 			
-			request.setAttribute("status", resultado);
-			request.setAttribute("operacao", "cadastrada");
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/statusInsercao.jsp");
-			dispatcher.forward(request, response);
-			
+			request.setAttribute("mensagem", resultado ? "Viagem cadastrada com sucesso!" : "Erro ao cadastrar viagem!");
+			request.setAttribute("tipoMensagem", resultado ? "sucesso" : "erro");
+			listarViagens(request, response);			
 		}
 	
-	private void removerViagem(HttpServletRequest request, HttpServletResponse response)
+	private void confirmarRemocao(HttpServletRequest request, HttpServletResponse response)
 	        throws ServletException, IOException {
 
 	    int id = Integer.parseInt(request.getParameter("id"));
@@ -105,6 +108,19 @@ public class ViagemController extends HttpServlet {
 
 	    RequestDispatcher dispatcher = request.getRequestDispatcher("/confirmarRemocao.jsp");
 	    dispatcher.forward(request, response);
+	}
+
+	private void removerViagem(HttpServletRequest request, HttpServletResponse response)
+	        throws ServletException, IOException {
+
+	    int id = Integer.parseInt(request.getParameter("id"));
+
+	    boolean resultado = vDAO.removerViagem(id);
+
+	    request.setAttribute("mensagem", resultado ? "Viagem removida com sucesso!" : "Erro ao remover viagem!");
+	    request.setAttribute("tipoMensagem", resultado ? "sucesso" : "erro");
+
+	    listarViagens(request, response);
 	}
 	
 	

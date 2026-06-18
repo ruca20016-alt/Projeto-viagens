@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Cadastrar nova viagem</title>
+<title>Formulário de Viagens</title>
 
 <link rel="stylesheet" href="Style.css">
 
@@ -24,27 +24,26 @@
         <label>Duração (dias)</label>
         <input type="number" name="duracao" min="1" required>
 
-        <label>Valor da diária(R$)</label>
-        <input type="number" name="vDiaria" min="0" step="0.01" required>
+        <label>Valor da diária</label>
+        <input type="number" name="vDiaria" step="0.01" required>
 
         <label>Data da viagem</label>
         <input type="date" name="dtViagem" required>
 
         <label>Meios de transporte</label>
         <div class="checkbox-group"> <!--  trocar checkbox para radio no css -->
-            <label><input type="radio" name="meioTrans" value="onibus" required>Ônibus</label>
+            <label><input type="radio" name="meioTrans" value="onibus">Ônibus</label>
             <label><input type="radio" name="meioTrans" value="aviao">Avião</label>
             <label><input type="radio" name="meioTrans" value="cruzeiro"> Cruzeiro</label>
         </div>
         
-         <label>Valor da Passagem(R$)</label>
-        <input type="number" name="valorPassagem" min="0" step="0.01" required>
+         <label>Valor da Passagem</label>
+        <input type="number" name="valorPassagem" min="1"required>
 
         <label>Número de pessoas</label>
-        <input type="number" name="nPessoas" min="1" step="1" required>
+        <input type="number" name="nPessoas" min="1" required>
 
-		<input type="submit" value="Adicionar Viagem">
-	</form>
+		<input type="submit" value="Adicionar Viagem"></form>
     
 </div>
 
