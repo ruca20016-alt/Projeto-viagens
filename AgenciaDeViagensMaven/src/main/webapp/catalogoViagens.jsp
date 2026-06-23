@@ -54,7 +54,7 @@
 			out.println("<td>" + viagem.getNPessoas() + "</td>");
 
 			out.println("<td><a href=\"ViagemController?operacao=remover&id=" + viagem.getId() + "\"><img src=\"lixeira.png\" height=\"20\"></a></td>");
-//			out.println("<td><a href=\"ViagemController?operacao=Editar&id=" + viagem.getId() + "\"><img src=\"editar.png\" height=\"20\"></a></td>");
+			out.println("<td><a href=\"ViagemController?operacao=editar&id=" + viagem.getId() + "\"><img src=\"editar.png\" height=\"20\"></a></td>");
 			out.println("</tr>");
 		}
 		
@@ -63,7 +63,7 @@
 		</table>
 		<p> <a href = "indexViagem.html"> Inicio</a><br>
 	
-		<a href = "FormViagem.html"><input type = "button" value="Nova Viagem"></a><br><br>
+		<a href = "FormViagem.jsp"><input type = "button" value="Nova Viagem"></a><br><br>
 	
 
 </body>

@@ -162,4 +162,42 @@ public class ViagemDAO {
 	    }
 		return viagem;
 	}
+
+	public boolean atualizarViagem(int id, String destino, String pais, int duracao, double vDiaria,
+	        LocalDate dtViagem, String meioTrans, double valorPassagem, int nPessoas) {
+
+	    Connection conexao = null;
+	    PreparedStatement stmt = null;
+	    int resultado = 0;
+
+	    try {
+	        conexao = dataSource.getConnection();
+
+	        String sql = "UPDATE viagem SET destino = ?, pais = ?, duracao = ?, vDiaria = ?, "
+	                + "dtViagem = ?, meioTrans = ?, valorPassagem = ?, nPessoas = ? "
+	                + "WHERE id = ?";
+
+	        stmt = conexao.prepareStatement(sql);
+
+	        stmt.setString(1, destino);
+	        stmt.setString(2, pais);
+	        stmt.setInt(3, duracao);
+	        stmt.setDouble(4, vDiaria);
+	        stmt.setDate(5, java.sql.Date.valueOf(dtViagem));
+	        stmt.setString(6, meioTrans);
+	        stmt.setDouble(7, valorPassagem);
+	        stmt.setInt(8, nPessoas);
+	        stmt.setInt(9, id);
+
+	        resultado = stmt.executeUpdate();
+	    }
+	    catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    finally {
+	        fecharConexao(conexao, stmt, null);
+	    }
+
+	    return resultado == 1;
+	}
 }
