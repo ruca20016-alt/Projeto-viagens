@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Agencia de las viagens</title>
-	</head>
-	<body>
-		<h3>Viagens </h3>
-		
-		<a href = "ViagemController?operacao=Listar"><input type = "button" value="Listar"></a><br><br>
-	</body>
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+	rel="stylesheet" />
+<meta charset="UTF-8">
+<title>Agência de Viagens</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="index-background">
+
+	<div class="barra-superior">
+		<h1 class="titulo">Agência de Viagens</h1>
+	</div>
+
+	<div class="card-apresentacao">
+		<h2>Explore o mundo</h2>
+
+		<p>Bem-vindo à Agência de Viagens. Este sistema permite cadastrar,
+			consultar, atualizar e remover pacotes de viagens nacionais e
+			internacionais de forma simples e organizada.</p>
+
+		<a href="ViagemController?operacao=Listar">
+			<button class="botao-principal">Ver Pacotes</button>
+		</a>
+	</div>
+
+</body>
 </html>

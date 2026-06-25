@@ -30,10 +30,11 @@
     <p>Tem certeza que deseja remover essa viagem?</p>
 
     <form action="ViagemController" method="post">
-        <input type="hidden" name="id" value="<%= viagem.getId() %>">
+    	<input type="hidden" name="id" value="<%= viagem.getId() %>">
+    	<input type="hidden" name="operacao" value="remover">
 
-        <input type="submit" value="Remover" name="operacao"><br><br>
-    </form>
+    	<input type="submit" value="Remover"><br><br>
+	</form>
 
     <a href="index.html">
         <input type="button" value="Cancelar">

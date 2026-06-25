@@ -101,29 +101,24 @@ public class Viagem {
 	}
 
 	public double calcularCustoTotal() {
-		double total = 0;
-
-		total += vDiaria * duracao * nPessoas;
-
-		total += valorPassagem * nPessoas;
-
-		return total;
-
+	    return (vDiaria * duracao) + (valorPassagem * nPessoas);
 	}
 
 	public double calcularCustoPorPessoa() {
-		if (nPessoas == 0) {
-			return 0;
-		}
-		return calcularCustoTotal() / nPessoas;
-
+	    if (nPessoas == 0) {
+	        return 0;
+	    }
+	    return calcularCustoTotal() / nPessoas;
 	}
 
-	public LocalDate calcularDiaFinalViagem() {
-		if (dtViagem == null) {
-			return null;
-		}
-		return dtViagem.plusDays(duracao);
+	
+
+	public LocalDate calcularDataFinalViagem() {
+	    if (dtViagem == null) {
+	        return null;
+	    }
+
+	    return dtViagem.plusDays(duracao);
 	}
 
 }
