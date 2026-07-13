@@ -20,22 +20,62 @@
 
 			<a href="FormViagem.jsp" class="botao-principal"> Nova Viagem </a>
 		</div>
-
-		<%
+		
+		<% 
 		String mensagem = (String) request.getAttribute("mensagem");
 		String tipoMensagem = (String) request.getAttribute("tipoMensagem");
 
 		if (mensagem != null) {
-			String classeMensagem = "sucesso".equals(tipoMensagem) ? "mensagem-sucesso" : "mensagem-erro";
+		    String classeMensagem = "sucesso".equals(tipoMensagem)
+		            ? "mensagem-sucesso"
+		            : "mensagem-erro";
 		%>
-		<p class="<%=classeMensagem%>"><%=mensagem%></p>
+
+		    <p class="<%= classeMensagem %>"><%= mensagem %></p>
+
 		<%
 		}
 
-		ArrayList<Viagem> listaViagens = (ArrayList<Viagem>) request.getAttribute("agenciadeviagens");
+		String tituloResultado =
+		        (String) request.getAttribute("tituloResultado");
+
+		String resultadoCalculo =
+		        (String) request.getAttribute("resultadoCalculo");
+
+		Viagem viagemCalculada =
+		        (Viagem) request.getAttribute("viagemCalculada");
+
+		if (tituloResultado != null
+		        && resultadoCalculo != null
+		        && viagemCalculada != null) {
+		%>
+
+		    <div class="resultado-calculo">
+
+		        <div>
+		            <h2><%= tituloResultado %></h2>
+
+		            <p>
+		                <strong>Viagem:</strong>
+		                <%= viagemCalculada.getDestino() %>,
+		                <%= viagemCalculada.getPais() %>
+		            </p>
+		        </div>
+
+		        <p class="valor-resultado">
+		            <%= resultadoCalculo %>
+		        </p>
+
+		    </div>
+
+		<%
+		}
+
+		ArrayList<Viagem> listaViagens =
+		        (ArrayList<Viagem>) request.getAttribute("agenciadeviagens");
 
 		if (listaViagens == null) {
-		listaViagens = new ArrayList<Viagem>();
+		    listaViagens = new ArrayList<Viagem>();
 		}
 
 		DecimalFormat df = new DecimalFormat("0.00");
@@ -55,10 +95,6 @@
 				<th>Passagem<br>(R$)
 				</th>
 				<th>N° Pessoas</th>
-				<th>Custo Total</th>
-				<th>Custo por<br>Pessoa
-				</th>
-				<th>Data Final</th>
 				<th>Ações</th>
 			</tr>
 			<%
@@ -73,9 +109,6 @@
 				out.println("<td>" + viagem.getMeioTrans() + "</td>");
 				out.println("<td>" + viagem.getValorPassagem() + "</td>");
 				out.println("<td>" + viagem.getNPessoas() + "</td>");
-				out.println("<td>R$ " + df.format(viagem.calcularCustoTotal()) + "</td>");
-				out.println("<td>R$ " + df.format(viagem.calcularCustoPorPessoa()) + "</td>");
-				out.println("<td>" + viagem.calcularDataFinalViagem() + "</td>");
 
 				out.println("<td class='acoes'>");
 
@@ -84,6 +117,31 @@
 
 				out.println("<a class='btn-editar' title='Editar viagem' href=\"ViagemController?operacao=editar&id="
 				+ viagem.getId() + "\"><img src='editar.png' height='20'></a>");
+				
+				out.println("<details class=\"mais-informacoes\">");
+
+				out.println("<summary class=\"btn-informacoes\">");
+				out.println("<img src=\"informacoes.png\" height=\"20\" alt=\"Mais informações\">");
+				out.println("<span class=\"tooltip\">Mais informações sobre esta viagem</span>");
+				out.println("</summary>");
+
+				out.println("<div class=\"menu-calculos\">");
+
+				out.println("<p>Informações da viagem</p>");
+
+				out.println("<a href=\"ViagemController?operacao=calcular&tipo=total&id="
+				        + viagem.getId() + "\">Custo total</a>");
+
+				out.println("<a href=\"ViagemController?operacao=calcular&tipo=pessoa&id="
+				        + viagem.getId() + "\">Custo por pessoa</a>");
+
+				out.println("<a href=\"ViagemController?operacao=calcular&tipo=dataFinal&id="
+				        + viagem.getId() + "\">Data final da viagem</a>");
+
+				out.println("</div>");
+
+				out.println("</details>");
+				
 				out.println("</td>");
 			}
 			%>
@@ -92,7 +150,6 @@
 		<a href="indexViagem.html" class="voltar"> <span
 			class="material-symbols-outlined"> arrow_back </span> Início
 		</a>
-
 	</div>
 </body>
 </html>

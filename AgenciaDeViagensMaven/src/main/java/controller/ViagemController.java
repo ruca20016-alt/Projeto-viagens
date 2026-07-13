@@ -51,6 +51,10 @@ public class ViagemController extends HttpServlet {
 	        case "editar":
 	            abrirFormularioEdicao(request, response);
 	            break;
+	            
+	        case "calcular":
+	            calcularViagem(request, response);
+	            break;
 
 	        default:
 	            System.out.println("Erro! Operação não encontrada.");
@@ -170,6 +174,66 @@ public class ViagemController extends HttpServlet {
 
 	    RequestDispatcher dispatcher = request.getRequestDispatcher("/FormViagem.jsp");
 	    dispatcher.forward(request, response);
+	}
+	
+	private void calcularViagem(
+	        HttpServletRequest request,
+	        HttpServletResponse response)
+	        throws ServletException, IOException {
+
+	    int id = Integer.parseInt(request.getParameter("id"));
+	    String tipo = request.getParameter("tipo");
+
+	    Viagem viagem = vDAO.buscarViagemPorId(id);
+
+	    if (viagem == null) {
+	        request.setAttribute("mensagem", "Viagem não encontrada.");
+	        request.setAttribute("tipoMensagem", "erro");
+
+	        listarViagens(request, response);
+	        return;
+	    }
+
+	    String tituloResultado;
+	    String resultadoCalculo;
+
+	    switch (tipo) {
+	        case "total":
+	            tituloResultado = "Custo total";
+	            resultadoCalculo = String.format(
+	                    "R$ %.2f",
+	                    viagem.calcularCustoTotal()
+	            );
+	            break;
+
+	        case "pessoa":
+	            tituloResultado = "Custo por pessoa";
+	            resultadoCalculo = String.format(
+	                    "R$ %.2f",
+	                    viagem.calcularCustoPorPessoa()
+	            );
+	            break;
+
+	        case "dataFinal":
+	            tituloResultado = "Data final da viagem";
+	            resultadoCalculo = viagem
+	                    .calcularDataFinalViagem()
+	                    .toString();
+	            break;
+
+	        default:
+	            request.setAttribute("mensagem", "Tipo de cálculo inválido.");
+	            request.setAttribute("tipoMensagem", "erro");
+
+	            listarViagens(request, response);
+	            return;
+	    }
+
+	    request.setAttribute("tituloResultado", tituloResultado);
+	    request.setAttribute("resultadoCalculo", resultadoCalculo);
+	    request.setAttribute("viagemCalculada", viagem);
+
+	    listarViagens(request, response);
 	}
 
 }

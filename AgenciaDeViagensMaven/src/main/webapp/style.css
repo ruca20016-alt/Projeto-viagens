@@ -79,7 +79,7 @@
 
 /* Catálogo */
 .pagina-catalogo {
-	background-color: #f4f8fb;
+	background-color: rgb(218, 232, 241);
 }
 
 .container-catalogo {
@@ -284,4 +284,263 @@
 .radio-group label {
 	font-weight: 600;
 	color: #333;
+}
+
+/* Botão de informações */
+
+.mais-informacoes {
+	position: relative;
+	display: inline-block;
+}
+
+.btn-informacoes {
+	position: relative;
+	list-style: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 6px;
+	border-radius: 6px;
+	transition: 0.2s;
+}
+
+.btn-informacoes::-webkit-details-marker {
+	display: none;
+}
+
+.btn-informacoes:hover {
+	background-color: #e3f2fd;
+	transform: scale(1.12);
+}
+
+/* Tooltip escondida */
+.btn-informacoes .tooltip {
+	position: absolute;
+	bottom: 135%;
+	left: 50%;
+	transform: translateX(-50%);
+
+	background-color: #333;
+	color: white;
+
+	padding: 6px 9px;
+	border-radius: 6px;
+
+	font-size: 12px;
+	white-space: nowrap;
+
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+
+	transition: 0.2s;
+	z-index: 200;
+}
+
+/* Mostra ao passar o mouse */
+.btn-informacoes:hover .tooltip {
+	opacity: 1;
+	visibility: visible;
+}
+
+/* Janela */
+
+.menu-calculos {
+	position: absolute;
+	top: 35px;
+	right: 0;
+
+	width: 220px;
+
+	background: white;
+	border-radius: 10px;
+	padding: 15px;
+
+	box-shadow: 0 6px 18px rgba(0,0,0,.2);
+	border: 1px solid #ddd;
+
+	z-index: 100;
+}
+
+.menu-calculos p {
+	color: #35ABFA;
+	font-weight: 600;
+	margin-bottom: 12px;
+}
+
+.menu-calculos a {
+	display: block;
+
+	text-decoration: none;
+
+	background: #35ABFA;
+	color: white;
+
+	padding: 10px;
+	margin-top: 8px;
+
+	border-radius: 8px;
+
+	text-align: center;
+
+	transition: .2s;
+}
+
+.menu-calculos a:hover {
+	background: #1E90FF;
+}
+
+/* Resultado dos cálculos */
+
+.resultado-calculo {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+
+	background-color: #eef8ff;
+	border: 1px solid #b9e1ff;
+	border-left: 6px solid #35ABFA;
+
+	padding: 20px 24px;
+	margin-bottom: 20px;
+
+	border-radius: 12px;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.resultado-calculo h2 {
+	color: #1e88e5;
+	font-size: 21px;
+	margin-bottom: 6px;
+}
+
+.resultado-calculo p {
+	color: #444;
+}
+
+.valor-resultado {
+	color: #1e88e5 !important;
+	font-size: 24px;
+	font-weight: 800;
+	white-space: nowrap;
+}
+
+/* Confirmação de remoção */
+
+.pagina-remocao {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 40px 20px;
+	background-color: #f4f8fb;
+}
+
+.card-remocao {
+	width: 650px;
+	max-width: 100%;
+	background-color: white;
+	border-radius: 18px;
+	overflow: hidden;
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cabecalho-remocao {
+	padding: 28px 35px;
+	background-color: #35abfa;
+	color: white;
+}
+
+.cabecalho-remocao h1 {
+	font-size: 32px;
+	margin-bottom: 6px;
+}
+
+.cabecalho-remocao p {
+	font-size: 16px;
+	opacity: 0.95;
+}
+
+.conteudo-remocao {
+	padding: 32px 35px;
+}
+
+.dados-remocao {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 14px 24px;
+	padding: 22px;
+	background-color: #f8fbff;
+	border: 1px solid #dceeff;
+	border-radius: 14px;
+}
+
+.dados-remocao p {
+	color: #444;
+}
+
+.dados-remocao strong {
+	color: #1e88e5;
+}
+
+.aviso-remocao {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-top: 24px;
+	padding: 16px;
+	background-color: #fff4e5;
+	border-left: 5px solid #f59e0b;
+	border-radius: 10px;
+	color: #8a4b00;
+	font-weight: 600;
+}
+
+.aviso-remocao .material-symbols-outlined {
+	font-size: 28px;
+}
+
+.acoes-remocao {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 12px;
+	margin-top: 28px;
+}
+
+.acoes-remocao form {
+	margin: 0;
+}
+
+.botao-cancelar,
+.botao-remover {
+	padding: 12px 22px;
+	border-radius: 10px;
+	font-size: 16px;
+	font-weight: 600;
+	text-decoration: none;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.botao-cancelar {
+	background-color: #eaf4fc;
+	color: #1e88e5;
+}
+
+.botao-cancelar:hover {
+	background-color: #d8ecfa;
+}
+
+.botao-remover {
+	border: none;
+	background-color: #e53935;
+	color: white;
+}
+
+.botao-remover:hover {
+	background-color: #c62828;
+	transform: translateY(-1px);
 }
