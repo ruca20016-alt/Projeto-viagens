@@ -1,0 +1,8 @@
+<context>
+<Resource name="agenciadeviagens"
+	auth="Container" type="javax.sql.DataSource"
+	username="pericles" password="supersenhamegasenha"
+	driverClassName="com.mysql.cj.jdbc.Driver"
+	url="jdbc:mysql://localhost:3306/pericles"
+/>
+</context>
