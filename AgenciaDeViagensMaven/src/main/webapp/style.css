@@ -544,3 +544,43 @@
 	background-color: #c62828;
 	transform: translateY(-1px);
 }
+
+.botoes-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.botoes-form .botao-principal {
+    width: 100%;
+}
+
+/* Botões do formulário */
+
+.botoes-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.botoes-form .botao-principal {
+    display: block;
+    width: 100%;
+}
+
+.botoes-form .botao-voltar {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0;
+    color: #35ABFA;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.botoes-form .botao-voltar:hover {
+    color: #1E88E5;
+    transform: translateX(-4px);
+}

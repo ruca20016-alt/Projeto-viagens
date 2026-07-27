@@ -48,24 +48,24 @@
 					<div class="form-group">
 						<label>Destino</label> <input type="text" name="destino"
 							placeholder="Ex: Paris"
-							value="<%= editar ? viagem.getDestino() : "" %>" required>
+							value="<%=editar ? viagem.getDestino() : ""%>" required>
 					</div>
 
 					<div class="form-group">
 						<label>País</label> <input type="text" name="pais"
 							placeholder="Ex: França"
-							value="<%= editar ? viagem.getPais() : "" %>" required>
+							value="<%=editar ? viagem.getPais() : ""%>" required>
 					</div>
 
 					<div class="form-group">
 						<label>Duração (dias)</label> <input type="number" name="duracao"
 							placeholder="Ex: 7"
-							value="<%= editar ? viagem.getDuracao() : "" %>" min="1" required>
+							value="<%=editar ? viagem.getDuracao() : ""%>" min="1" required>
 					</div>
 
 					<div class="form-group">
 						<label>Data da viagem</label> <input type="date" name="dtViagem"
-							value="<%= editar ? viagem.getDtViagem() : "" %>" required>
+							value="<%=editar ? viagem.getDtViagem() : ""%>" required>
 					</div>
 
 				</div>
@@ -79,21 +79,21 @@
 					<div class="form-group">
 						<label>Valor da diária (R$)</label> <input type="number"
 							name="vDiaria" placeholder="Ex: 350.00"
-							value="<%= editar ? viagem.getVDiaria() : "" %>" min="0"
+							value="<%=editar ? viagem.getVDiaria() : ""%>" min="0"
 							step="0.01" required>
 					</div>
 
 					<div class="form-group">
 						<label>Valor da passagem (R$)</label> <input type="number"
 							name="valorPassagem" placeholder="Ex: 2500.00"
-							value="<%= editar ? viagem.getValorPassagem() : "" %>" min="0"
+							value="<%=editar ? viagem.getValorPassagem() : ""%>" min="0"
 							step="0.01" required>
 					</div>
 
 					<div class="form-group">
 						<label>Número de pessoas</label> <input type="number"
 							name="nPessoas" placeholder="Ex: 2"
-							value="<%= editar ? viagem.getNPessoas() : "" %>" min="1"
+							value="<%=editar ? viagem.getNPessoas() : ""%>" min="1"
 							step="1" required>
 					</div>
 
@@ -106,23 +106,30 @@
 				<div class="radio-group">
 
 					<label> <input type="radio" name="meioTrans" value="onibus"
-						<%= "onibus".equals(transporte) ? "checked" : "" %> required>
+						<%="onibus".equals(transporte) ? "checked" : ""%> required>
 						Ônibus
 					</label> <label> <input type="radio" name="meioTrans" value="aviao"
-						<%= "aviao".equals(transporte) ? "checked" : "" %>> Avião
+						<%="aviao".equals(transporte) ? "checked" : ""%>> Avião
 					</label> <label> <input type="radio" name="meioTrans"
 						value="cruzeiro"
-						<%= "cruzeiro".equals(transporte) ? "checked" : "" %>>
+						<%="cruzeiro".equals(transporte) ? "checked" : ""%>>
 						Cruzeiro
 					</label>
 
 				</div>
 			</div>
 
-			<input class="botao-principal" type="submit" value="<%=textoBotao%>">
+			<div class="botoes-form">
+
+    <input class="botao-principal" type="submit" value="<%=textoBotao%>">
+
+    <a href="ViagemController?operacao=Listar" class="botao-voltar">← Voltar</a>
+
+</div>
+			</div>
 		</form>
 
-	</div>
+	
 
 </body>
 </html>
